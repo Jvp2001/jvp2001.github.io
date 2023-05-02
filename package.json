@@ -3,11 +3,12 @@
     "src/"
   ],
   "scripts": {
-    "start": "parcel serve src/index.html",
-    "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+    "start": "parcel serve index.html",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url .",
     "clean and deploy": "rm -rf && gh-pages -d src",
     "deploy": "gh-pages -d src",
-    "deloy and run": "npm run build && npm run deploy"
+    "deloy and run": "npm run build && npm run deploy",
+    "run": "npm run build && npm run deploy and run && npm run start"
   },
   "homepage": "https://jvp2001.github.io",
   "devDependencies": {
