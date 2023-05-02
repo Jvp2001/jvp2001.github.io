@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel serve src/index.html",
     "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
-    "deploy": "rm -rf && gh-pages -d src",
+    "clean and deploy": "rm -rf && gh-pages -d src",
+    "deploy": "gh-pages -d src",
     "deloy and run": "npm run build && npm run deploy"
   },
   "homepage": "https://jvp2001.github.io",
