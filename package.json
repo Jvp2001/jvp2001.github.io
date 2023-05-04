@@ -5,6 +5,7 @@
   "scripts": {
     "start": "parcel serve index.html",
     "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+    "build and run": "npm run build && npm run start",
     "run": "gh-pages-clean && gh-pages -d dist && npm run build && npm run start"
   },
   "homepage": "https://jvp2001.github.io",
