@@ -10,9 +10,13 @@
   },
   "homepage": "https://jvp2001.github.io",
   "devDependencies": {
+    "@types/fscreen": "^1.0.1",
     "cross-env": "^5.2.0",
     "gh-pages": "^5.0.0",
     "parcel": "^2.0.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "fscreen": "^1.2.0"
   }
 }

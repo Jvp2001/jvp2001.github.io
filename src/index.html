@@ -19,6 +19,8 @@
     <script src="assets/js/breakpoints.min.js" defer></script>
     <script src="assets/js/util.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+    
+    <script type="module" src="scripts/Common.ts" defer></script>
 </head>
 <body class="is-preload">
 
@@ -100,7 +102,7 @@
                 <div class="row space-between">
                     <div class="col-4 col-12-mobile">
                         <article class="item">
-                            <a href="#" class="image fit">
+                            <a href="Unreal.html" class="image fit goto">
                                 <img src="images/logos/UnrealLogo.png" alt=""/>
                                 <header>
                                     <h3>Unreal (C++ and Bluprint)</h3>
@@ -110,7 +112,7 @@
                     </div>
                     <div class="col-4 col-12-mobile">
                         <article class="item">
-                            <a href="Unity.html" class="image fit"><img src="images/logos/UnityLogo.png" alt=""/>
+                            <a href="Unity.html" class="image fit goto"><img src="images/logos/UnityLogo.png" alt=""/>
                                 <header>
                                     <h3>Unity (C#)</h3>
                                 </header>
@@ -157,7 +159,7 @@
                 donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
                 orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
 
-            <form method="post" action="#">
+            <form id="email-form" method="post" action="#">
                 <div class="row">
                     <div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name"/></div>
                     <div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email"/></div>
