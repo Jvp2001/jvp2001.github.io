@@ -591,6 +591,13 @@ const defaultPageVariables = {
     videoUrl: "videos",
     defaultVideoExtension: ".mp4"
 };
+const imageStyleSettings = {
+    size: {
+        width: 200,
+        height: 200
+    },
+    fit: "contain"
+};
 const enginePagesConfig = {
     Unreal: {
         intro: "",
@@ -600,19 +607,13 @@ const enginePagesConfig = {
                     name: " Multiplayer Menu UI",
                     link: {
                         type: "GitHub",
-                        value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4"
+                        value: "https://github.com/uniglos/assignment-1-Jvp2001"
                     },
                     element: {
                         name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4",
                         showControls: false,
                         maximiseOnClick: true,
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 }
             ]
@@ -627,17 +628,11 @@ const enginePagesConfig = {
                     name: "Maze Game",
                     link: {
                         type: "GitHub",
-                        value: "MazeGame"
+                        value: "https://github.com/uniglos/ct4026-20202021-assignment-2-Jvp2001"
                     },
                     element: {
                         name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Maze.gif",
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 },
                 {
@@ -645,34 +640,22 @@ const enginePagesConfig = {
                     name: "3D level",
                     link: {
                         type: "GitHub",
-                        value: "3DLevel"
+                        value: "https://github.com/uniglos/ct4026-20202021-assignment-1-Jvp2001"
                     },
                     element: {
-                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/3DGameLevel.png",
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/3DGameLevel.gif",
+                        style: imageStyleSettings
                     }
                 },
                 {
                     name: "UI",
                     link: {
                         type: "SubPage",
-                        value: "UnityUI.html"
+                        value: "https://jvp2001.github.io/src/UnityUI.html"
                     },
                     element: {
                         name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Button.png",
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 }
             ]
@@ -694,13 +677,7 @@ const enginePagesConfig = {
                         showControls: false,
                         maximiseOnClick: true,
                         autoplay: true,
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 },
                 {
@@ -714,13 +691,7 @@ const enginePagesConfig = {
                         showControls: false,
                         maximiseOnClick: true,
                         autoplay: true,
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 }
             ]
@@ -774,7 +745,6 @@ function createProjectItemElement(vars, element) {
         videoTag.title = "Click to maximise and play.";
         // videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
         videoTag.src = `${element.name}`;
-        console.log(videoTag.src);
         videoTag.src.endsWith(vars.defaultVideoExtension) || (videoTag.src += vars.defaultVideoExtension);
         const size = element.style.size;
         videoTag.style.width = `${size.width}px`;
@@ -785,6 +755,13 @@ function createProjectItemElement(vars, element) {
             (0, _fscreenDefault.default).requestFullscreen(videoTag);
             await videoTag.play();
         });
+        (0, _fscreenDefault.default).addEventListener("fullscreenElement", async (_)=>{
+            if (element.autoplay) await videoTag.play();
+        });
+        (0, _fscreenDefault.default).onfullscreenchange = (_)=>videoTag.pause();
+        videoTag.onkeyup = (e)=>{
+            if (e.key === "Escape") videoTag.pause();
+        };
         videoTag.onended = (_)=>(0, _fscreenDefault.default).exitFullscreen();
         return videoTag;
     }
@@ -792,7 +769,6 @@ function createProjectItemElement(vars, element) {
         const imgTag = document.createElement("img");
         // imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/")
         imgTag.src = `${element.name}`;
-        console.log(imgTag.src);
         const size = element.style.size;
         imgTag.style.width = `${size.width}px`;
         imgTag.style.height = `${size.height}px`;
@@ -807,7 +783,6 @@ function createProjectItem(vars, itemInfo) {
     article.classList.add("item");
     article.title = "Hover to enlarge";
     const aTag = document.createElement("a");
-    alert(`Link: ${itemInfo.link.value}`);
     switch(itemInfo.link.type){
         case "GitHub":
             aTag.href = `${itemInfo.link.value}`.replace("//", "/");
