@@ -1,1 +1,0 @@
-{"mappings":"ACCA","sources":["index.3c57ec49.css","src/assets/css/common.css"],"sourcesContent":["h1#title {\n  content: \"Joshua Petersen\";\n}\n\n/*# sourceMappingURL=index.3c57ec49.css.map */\n","\nh1#title\n{\n    content: \"Joshua Petersen\"\n}"],"names":[],"version":3,"file":"index.3c57ec49.css.map"}
