@@ -5,7 +5,7 @@ export const defaultPageVariables: EnginePageConfigVars =
     {
         gitHubPageURL: "https://github.com/jvp2001",
         gitHubWebPagesUrl: "https://jvp2001.github.io/dist",
-        rawContentUrl: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src",
+        rawContentUrl: "https://jvp2001.github.io/raw/main/src",
         imageUrl: "images",
         videoUrl: "videos",
         defaultVideoExtension: ".mp4"
