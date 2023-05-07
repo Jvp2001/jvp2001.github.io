@@ -600,7 +600,7 @@ const enginePagesConfig = {
                     name: " Multiplayer Menu UI",
                     link: {
                         type: "GitHub",
-                        value: "Unreal/MultiplayerMenuUI.mp4"
+                        value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4"
                     },
                     element: {
                         name: "MultiplayerMenuUI",
@@ -630,7 +630,7 @@ const enginePagesConfig = {
                         value: "MazeGame"
                     },
                     element: {
-                        name: "https://github.com/Jvp2001/jvp2001.github.io/blob/main/src/images/Unity/Maze.gif",
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Maze.gif",
                         style: {
                             size: {
                                 width: 200,
@@ -648,7 +648,7 @@ const enginePagesConfig = {
                         value: "3DLevel"
                     },
                     element: {
-                        name: "https://github.com/Jvp2001/jvp2001.github.io/blob/main/src/images/Unity/3DGameLevel.png",
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/3DGameLevel.png",
                         style: {
                             size: {
                                 width: 200,
@@ -665,7 +665,7 @@ const enginePagesConfig = {
                         value: "UnityUI.html"
                     },
                     element: {
-                        name: "Unity/Button.png",
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Button.png",
                         style: {
                             size: {
                                 width: 200,
@@ -687,7 +687,7 @@ const enginePagesConfig = {
                     name: "Button Animation",
                     link: {
                         type: "GitHub",
-                        value: "Unity/Button.png"
+                        value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov"
                     },
                     element: {
                         name: "ButtonAnimation.mov",
@@ -773,6 +773,7 @@ function createProjectItemElement(vars, element) {
         const videoTag = document.createElement("video");
         videoTag.title = "Click to maximise and play.";
         // videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
+        videoTag.src = `${element.name}`;
         console.log(videoTag.src);
         videoTag.src.endsWith(vars.defaultVideoExtension) || (videoTag.src += vars.defaultVideoExtension);
         const size = element.style.size;
