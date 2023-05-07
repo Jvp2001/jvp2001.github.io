@@ -603,7 +603,7 @@ const enginePagesConfig = {
                         value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4"
                     },
                     element: {
-                        name: "MultiplayerMenuUI",
+                        name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4",
                         showControls: false,
                         maximiseOnClick: true,
                         style: {
@@ -807,7 +807,7 @@ function createProjectItem(vars, itemInfo) {
     article.classList.add("item");
     article.title = "Hover to enlarge";
     const aTag = document.createElement("a");
-    console.log(`Link: ${itemInfo.link.value}`);
+    alert(`Link: ${itemInfo.link.value}`);
     switch(itemInfo.link.type){
         case "GitHub":
             aTag.href = `${itemInfo.link.value}`.replace("//", "/");
