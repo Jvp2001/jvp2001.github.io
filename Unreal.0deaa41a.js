@@ -630,7 +630,7 @@ const enginePagesConfig = {
                         value: "MazeGame"
                     },
                     element: {
-                        name: "Unity/Maze.gif",
+                        name: "https://github.com/Jvp2001/jvp2001.github.io/blob/main/src/images/Unity/Maze.gif",
                         style: {
                             size: {
                                 width: 200,
@@ -648,7 +648,7 @@ const enginePagesConfig = {
                         value: "3DLevel"
                     },
                     element: {
-                        name: "Unity/3DGameLevel.gif",
+                        name: "https://github.com/Jvp2001/jvp2001.github.io/blob/main/src/images/Unity/3DGameLevel.png",
                         style: {
                             size: {
                                 width: 200,
@@ -790,6 +790,7 @@ function createProjectItemElement(vars, element) {
     if (isOfType(element, "style")) {
         const imgTag = document.createElement("img");
         imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/");
+        console.log(imgTag.src);
         const size = element.style.size;
         imgTag.style.width = `${size.width}px`;
         imgTag.style.height = `${size.height}px`;
@@ -806,7 +807,7 @@ function createProjectItem(vars, itemInfo) {
     const aTag = document.createElement("a");
     switch(itemInfo.link.type){
         case "GitHub":
-            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
+            aTag.href = `${itemInfo.link.value}`.replace("//", "/");
             break;
         case "SubPage":
             aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
@@ -814,6 +815,7 @@ function createProjectItem(vars, itemInfo) {
         default:
             break;
     }
+    console.log(aTag.href);
     const projectTag = createProjectItemElement(vars, itemInfo.element);
     //imgTag.style.objectFit = itemInfo.image.style.fit ?? "cover"
     const header = document.createElement("header");
