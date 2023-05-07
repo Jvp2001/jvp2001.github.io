@@ -789,7 +789,8 @@ function createProjectItemElement(vars, element) {
     }
     if (isOfType(element, "style")) {
         const imgTag = document.createElement("img");
-        imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/");
+        // imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/")
+        imgTag.src = `${element.name}`;
         console.log(imgTag.src);
         const size = element.style.size;
         imgTag.style.width = `${size.width}px`;
