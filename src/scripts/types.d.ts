@@ -22,9 +22,10 @@ type ProjectLinkConfig =
     | { type: "Other", url: string }
 type ObjectFitValue = "contain" | "cover" | "scale" | "none" | "fill"
 
+declare type MediaElementStyle = { size: { width: number, height: number }, fit: ObjectFitValue };
 declare type VideoConfig = {
     name: string,
-    style: { size: { width: number, height: number }, fit: ObjectFitValue },
+    style: MediaElementStyle,
     showControls: boolean
     maximiseOnClick: boolean
     autoplay: boolean
@@ -32,7 +33,7 @@ declare type VideoConfig = {
 
 declare type ImageConfig = {
     name: string,
-    style: { size: { width: number, height: number }, fit: ObjectFitValue }
+    style: MediaElementStyle
 };
 
 declare type ProjectElement = ImageConfig | VideoConfig;

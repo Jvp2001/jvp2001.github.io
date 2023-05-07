@@ -586,10 +586,17 @@ const config = {
 const defaultPageVariables = {
     gitHubPageURL: "https://github.com/jvp2001",
     gitHubWebPagesUrl: "https://jvp2001.github.io/dist",
-    rawContentUrl: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/dist",
+    rawContentUrl: "https://jvp2001.github.io/raw/main/src",
     imageUrl: "images",
     videoUrl: "videos",
     defaultVideoExtension: ".mp4"
+};
+const imageStyleSettings = {
+    size: {
+        width: 200,
+        height: 200
+    },
+    fit: "contain"
 };
 const enginePagesConfig = {
     Unreal: {
@@ -600,19 +607,13 @@ const enginePagesConfig = {
                     name: " Multiplayer Menu UI",
                     link: {
                         type: "GitHub",
-                        value: "Unreal/MultiplayerMenuUI.mp4"
+                        value: "https://github.com/uniglos/assignment-1-Jvp2001"
                     },
                     element: {
-                        name: "MultiplayerMenuUI",
+                        name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4",
                         showControls: false,
                         maximiseOnClick: true,
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 }
             ]
@@ -627,17 +628,11 @@ const enginePagesConfig = {
                     name: "Maze Game",
                     link: {
                         type: "GitHub",
-                        value: "MazeGame"
+                        value: "https://github.com/uniglos/ct4026-20202021-assignment-2-Jvp2001"
                     },
                     element: {
-                        name: "Unity/Maze.gif",
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Maze.gif",
+                        style: imageStyleSettings
                     }
                 },
                 {
@@ -645,34 +640,22 @@ const enginePagesConfig = {
                     name: "3D level",
                     link: {
                         type: "GitHub",
-                        value: "3DLevel"
+                        value: "https://github.com/uniglos/ct4026-20202021-assignment-1-Jvp2001"
                     },
                     element: {
-                        name: "Unity/3DGameLevel.gif",
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/3DGameLevel.gif",
+                        style: imageStyleSettings
                     }
                 },
                 {
                     name: "UI",
                     link: {
                         type: "SubPage",
-                        value: "UnityUI.html"
+                        value: "https://jvp2001.github.io/src/UnityUI.html"
                     },
                     element: {
-                        name: "Unity/Button.png",
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Button.png",
+                        style: imageStyleSettings
                     }
                 }
             ]
@@ -687,20 +670,14 @@ const enginePagesConfig = {
                     name: "Button Animation",
                     link: {
                         type: "GitHub",
-                        value: "Unity/Button.png"
+                        value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov"
                     },
                     element: {
                         name: "ButtonAnimation.mov",
                         showControls: false,
                         maximiseOnClick: true,
                         autoplay: true,
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 },
                 {
@@ -714,13 +691,7 @@ const enginePagesConfig = {
                         showControls: false,
                         maximiseOnClick: true,
                         autoplay: true,
-                        style: {
-                            size: {
-                                width: 200,
-                                height: 200
-                            },
-                            fit: "contain"
-                        }
+                        style: imageStyleSettings
                     }
                 }
             ]
@@ -772,8 +743,8 @@ function createProjectItemElement(vars, element) {
     if (isOfType(element, "showControls")) {
         const videoTag = document.createElement("video");
         videoTag.title = "Click to maximise and play.";
-        videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/");
-        console.log(videoTag.src);
+        // videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
+        videoTag.src = `${element.name}`;
         videoTag.src.endsWith(vars.defaultVideoExtension) || (videoTag.src += vars.defaultVideoExtension);
         const size = element.style.size;
         videoTag.style.width = `${size.width}px`;
@@ -784,12 +755,20 @@ function createProjectItemElement(vars, element) {
             (0, _fscreenDefault.default).requestFullscreen(videoTag);
             await videoTag.play();
         });
+        (0, _fscreenDefault.default).addEventListener("fullscreenElement", async (_)=>{
+            if (element.autoplay) await videoTag.play();
+        });
+        (0, _fscreenDefault.default).onfullscreenchange = (_)=>videoTag.pause();
+        videoTag.onkeyup = (e)=>{
+            if (e.key === "Escape") videoTag.pause();
+        };
         videoTag.onended = (_)=>(0, _fscreenDefault.default).exitFullscreen();
         return videoTag;
     }
     if (isOfType(element, "style")) {
         const imgTag = document.createElement("img");
-        imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/");
+        // imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/")
+        imgTag.src = `${element.name}`;
         const size = element.style.size;
         imgTag.style.width = `${size.width}px`;
         imgTag.style.height = `${size.height}px`;
@@ -806,14 +785,15 @@ function createProjectItem(vars, itemInfo) {
     const aTag = document.createElement("a");
     switch(itemInfo.link.type){
         case "GitHub":
-            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
+            aTag.href = `${itemInfo.link.value}`.replace("//", "/");
             break;
         case "SubPage":
-            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
+            aTag.href = `${itemInfo.link.value}`.replace("//", "/");
             break;
         default:
             break;
     }
+    console.log(aTag.href);
     const projectTag = createProjectItemElement(vars, itemInfo.element);
     //imgTag.style.objectFit = itemInfo.image.style.fit ?? "cover"
     const header = document.createElement("header");

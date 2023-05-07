@@ -12,8 +12,8 @@ function createProjectItemElement(vars: EnginePageConfigVars, element: ProjectEl
 
         const videoTag = document.createElement("video") as HTMLVideoElement
         videoTag.title = "Click to maximise and play."
-        videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
-        console.log(videoTag.src)
+        // videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
+        videoTag.src = `${element.name}`
         videoTag.src.endsWith(vars.defaultVideoExtension) || (videoTag.src += vars.defaultVideoExtension)
         const size = element.style.size
 
@@ -21,7 +21,6 @@ function createProjectItemElement(vars: EnginePageConfigVars, element: ProjectEl
         videoTag.style.height = `${size.height}px`
         videoTag.style.objectFit = element.style.fit
         videoTag.controls = element.showControls
-
         if (element.maximiseOnClick)
             videoTag.addEventListener("click", async _ =>
             {
@@ -30,6 +29,20 @@ function createProjectItemElement(vars: EnginePageConfigVars, element: ProjectEl
 
 
             })
+        fscreen.addEventListener("fullscreenElement", async _ =>
+        {
+            if (element.autoplay)
+            {
+                await videoTag.play()
+            }
+
+        })
+        fscreen.onfullscreenchange = _ => videoTag.pause()
+        videoTag.onkeyup = e =>
+        {
+            if(e.key === "Escape")
+                videoTag.pause()
+        }
         videoTag.onended = _ => fscreen.exitFullscreen()
 
 
@@ -39,7 +52,8 @@ function createProjectItemElement(vars: EnginePageConfigVars, element: ProjectEl
     if (isOfType<ImageConfig>(element, "style"))
     {
         const imgTag = document.createElement("img") as HTMLImageElement
-        imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/")
+        // imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/")
+        imgTag.src = `${element.name}`
         const size = element.style.size
 
         imgTag.style.width = `${size.width}px`
@@ -60,18 +74,20 @@ function createProjectItem(vars: EnginePageConfigVars, itemInfo: EnginePageProje
     article.title = "Hover to enlarge"
 
     const aTag = document.createElement("a") as HTMLAnchorElement
-    
     switch (itemInfo.link.type)
     {
         case "GitHub":
-            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/")
+            aTag.href = `${itemInfo.link.value}`.replace("//", "/")
             break
         case "SubPage":
-            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/")
+            aTag.href = `${itemInfo.link.value}`.replace("//", "/")
             break
         default:
             break
+        
+        
     }
+    console.log(aTag.href)
 
 
     const projectTag = createProjectItemElement(vars, itemInfo.element)

@@ -10,6 +10,7 @@ export const defaultPageVariables: EnginePageConfigVars =
         videoUrl: "videos",
         defaultVideoExtension: ".mp4"
     }
+const imageStyleSettings: MediaElementStyle = {size: {width: 200, height: 200}, fit: "contain"}
 export const enginePagesConfig: EnginePagesConfig =
     {
         Unreal: {
@@ -18,12 +19,12 @@ export const enginePagesConfig: EnginePagesConfig =
                 projects: [
                     {
                         name: " Multiplayer Menu UI",
-                        link: {type: "GitHub", value: "Unreal/MultiplayerMenuUI.mp4"},
+                        link: {type: "GitHub", value: "https://github.com/uniglos/assignment-1-Jvp2001"},
                         element: {
-                            name: "MultiplayerMenuUI",
+                            name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unreal/MultiplayerMenuUI.mp4",
                             showControls: false,
                             maximiseOnClick: true,
-                            style: {size: {width: 200, height: 200}, fit: "contain"}
+                            style: imageStyleSettings
                         }
                     },
                 ],
@@ -37,10 +38,13 @@ export const enginePagesConfig: EnginePagesConfig =
                 projects: [
                     {
                         name: "Maze Game",
-                        link: {type: "GitHub", value: "MazeGame"},
+                        link: {
+                            type: "GitHub",
+                            value: "https://github.com/uniglos/ct4026-20202021-assignment-2-Jvp2001"
+                        },
                         element: {
-                            name: "Unity/Maze.gif",
-                            style: {size: {width: 200, height: 200}, fit: "contain"}
+                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Maze.gif",
+                            style: imageStyleSettings
                         }
 
 
@@ -48,18 +52,21 @@ export const enginePagesConfig: EnginePagesConfig =
                     {
                         //TODO: Find the correct Git repo for this
                         name: "3D level",
-                        link: {type: "GitHub", value: "3DLevel"},
+                        link: {
+                            type: "GitHub",
+                            value: "https://github.com/uniglos/ct4026-20202021-assignment-1-Jvp2001"
+                        },
                         element: {
-                            name: "Unity/3DGameLevel.gif",
-                            style: {size: {width: 200, height: 200}, fit: "contain"}
+                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/3DGameLevel.gif",
+                            style: imageStyleSettings
                         }
                     },
                     {
                         name: "UI",
-                        link: {type: "SubPage", value: "UnityUI.html"},
+                        link: {type: "SubPage", value: "https://jvp2001.github.io/src/UnityUI.html"},
                         element: {
-                            name: "Unity/Button.png",
-                            style: {size: {width: 200, height: 200}, fit: "contain"}
+                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Button.png",
+                            style: imageStyleSettings
                         }
                     }
                 ],
@@ -73,18 +80,18 @@ export const enginePagesConfig: EnginePagesConfig =
                 projects: [
                     {
                         name: "Button Animation",
-                        link: {type: "GitHub", value: "Unity/Button.png"},
+                        link: {
+                            type: "GitHub",
+                            value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov"
+                        },
                         element: {
                             name: "ButtonAnimation.mov",
                             showControls: false,
                             maximiseOnClick: true,
                             autoplay: true,
-                            style: {
-                                size: {width: 200, height: 200},
-                                fit: "contain"
-                            }
+                            style: imageStyleSettings
                         },
-                    }  ,
+                    },
                     {
                         name: "Slider Animation",
                         link: {type: "GitHub", value: "Slider"},
@@ -93,14 +100,11 @@ export const enginePagesConfig: EnginePagesConfig =
                             showControls: false,
                             maximiseOnClick: true,
                             autoplay: true,
-                            style: {
-                                size: {width: 200, height: 200},
-                                fit: "contain"
-                            }
+                            style: imageStyleSettings
                         }
                     }
                 ],
-            }     ,
+            },
             variables: defaultPageVariables,
         },
     }
