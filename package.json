@@ -3,9 +3,11 @@
     "src/"
   ],
   "scripts": {
-    "start": "parcel serve index.html",
-    "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+    "start": "parcel serve src/index.html",
+    "build": "cross-env NODE_ENV=production parcel build index.html --public-url . && parcel build src/UnityUI.html",
     "build and run": "npm run build && npm run start",
+    "publish": "gh-pages-clean dist && gh-pages -d dist",
+    "build and publish": "npm run build && npm run publish",
     "run": "gh-pages-clean && gh-pages -d dist && npm run build && npm run start"
   },
   "homepage": "https://jvp2001.github.io",

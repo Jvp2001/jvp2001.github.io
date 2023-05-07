@@ -586,7 +586,7 @@ const config = {
 const defaultPageVariables = {
     gitHubPageURL: "https://github.com/jvp2001",
     gitHubWebPagesUrl: "https://jvp2001.github.io/dist",
-    rawContentUrl: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src",
+    rawContentUrl: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/dist",
     imageUrl: "images",
     videoUrl: "videos",
     defaultVideoExtension: ".mp4"
@@ -806,10 +806,10 @@ function createProjectItem(vars, itemInfo) {
     const aTag = document.createElement("a");
     switch(itemInfo.link.type){
         case "GitHub":
-            aTag.href = `${vars.gitHubPageURL}/${itemInfo.link.value}`.replace("//", "/");
+            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
             break;
         case "SubPage":
-            aTag.href = `${vars.gitHubWebPagesUrl}/${itemInfo.link.value}`.replace("//", "/");
+            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
             break;
         default:
             break;
