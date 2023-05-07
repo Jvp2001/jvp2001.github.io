@@ -772,7 +772,7 @@ function createProjectItemElement(vars, element) {
     if (isOfType(element, "showControls")) {
         const videoTag = document.createElement("video");
         videoTag.title = "Click to maximise and play.";
-        videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/");
+        // videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
         console.log(videoTag.src);
         videoTag.src.endsWith(vars.defaultVideoExtension) || (videoTag.src += vars.defaultVideoExtension);
         const size = element.style.size;
@@ -806,12 +806,13 @@ function createProjectItem(vars, itemInfo) {
     article.classList.add("item");
     article.title = "Hover to enlarge";
     const aTag = document.createElement("a");
+    console.log(`Link: ${itemInfo.link.value}`);
     switch(itemInfo.link.type){
         case "GitHub":
             aTag.href = `${itemInfo.link.value}`.replace("//", "/");
             break;
         case "SubPage":
-            aTag.href = `${vars.rawContentUrl}/${itemInfo.link.value}`.replace("//", "/");
+            aTag.href = `${itemInfo.link.value}`.replace("//", "/");
             break;
         default:
             break;
