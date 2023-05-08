@@ -1,4 +1,5 @@
 import fscreen from "fscreen";
+import {defaultPageVariables} from "./Config";
 
 function isOfType<T>(obj: any, key: keyof T): obj is T
 {
@@ -112,16 +113,9 @@ function createProjectItem(vars: EnginePageConfigVars, itemInfo: EnginePageProje
 export function setupEnginePage(config: EnginePageConfig)
 {               let container: HTMLDivElement | null = document.querySelector("#portfolio div.container")
     console.log(config)
-    const variables = config.variables
+    const variables = config.variables  ?? defaultPageVariables
     const pages = config.portfolio?.projects
-    const vars = variables ?? {
-        gitHubPageURL: "",
-        imageUrl: "",
-        rawContentUrl: "",
-        gitHubWebPagesUrl: "",
-        videoUrl: "",
-        defaultVideoExtension: ""
-    }   satisfies EnginePageConfigVars
+    const vars = variables ?? defaultPageVariables
     const row = document.createElement("div") as HTMLDivElement
     row.classList.add("row")
     console.log(pages!)

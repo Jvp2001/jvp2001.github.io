@@ -42,4 +42,48 @@ li.two-nav-buttons a {
   display: none;
 }
 
+.about-me-contents {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: grid;
+}
+
+.about-me-contents h3 {
+  margin-left: 0;
+  padding-left: 7%;
+}
+
+.about-me-contents div {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+div.about-me-contents span {
+  color: inherit;
+}
+
+div.about-me-contents div li {
+  color: inherit;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  display: flex;
+}
+
+div.about-me-contents li {
+  color: inherit;
+  list-style: none;
+}
+
+div.about-me-contents .engines {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+div.about-me-contents .engines ul:last-child {
+  padding: 0;
+}
+
 /*# sourceMappingURL=index.71c170b7.css.map */

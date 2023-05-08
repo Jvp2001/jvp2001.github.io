@@ -65,3 +65,112 @@ li.two-nav-buttons a
 {
     display: none;
 }
+
+.about-me-contents
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+}
+.about-me-contents h3
+{
+    margin-left: 0;
+    padding-left: 7%;
+}
+.about-me-contents div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+div.about-me-contents span
+{
+    color: inherit;
+    
+}
+
+div.about-me-contents div  li
+{
+    list-style: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+div.about-me-contents li
+{
+    list-style: none;
+
+    color: inherit;
+}
+
+.about-me-contents
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+}
+.about-me-contents h3
+{
+    margin-left: 0;
+    padding-left: 7%;
+}
+.about-me-contents div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+div.about-me-contents span
+{
+    color: inherit;
+
+}
+
+div.about-me-contents div  li
+{
+    list-style: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+div.about-me-contents li
+{
+    list-style: none;
+
+    color: inherit;
+    
+}
+
+div.about-me-contents .engines
+{
+    height: fit-content;
+}
+
+
+
+
+div.about-me-contents .engines ul:last-child
+{
+    padding: 0;
+}
+
+div.about-me-contents .engines
+{
+    height: fit-content;
+}
+
+
+
+
+div.about-me-contents .engines ul:last-child
+{
+    padding: 0;
+}

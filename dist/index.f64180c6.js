@@ -610,9 +610,46 @@ function setupNavigation() {
     li.classList.remove("hidden");
     back.addEventListener("click", goBack);
 }
+function setupAboutMe() {
+    const contents = ` <div class="container">
+
+            <header>
+                <h2>About Me</h2>
+            </header>
+
+            <!--            <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>-->
+
+            <div class="about-me-contents">
+                <div class="languages">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li><span>C++</span></li>
+                        <li><span>C#</span></li>
+                        <li><span>PYTHON</span></li>
+                        <li><span>JAVA</span></li>
+                    </ul>
+
+                </div>
+                <div class="engines">
+                    <h3>Engines</h3>
+                    <ul>
+                        <li><span>Unreal</span></li>
+                        <li><span>Unity</span></li>
+                    </ul>
+                </div>
+            </div>
+            <footer>
+                <a href="#contact" class="button scrolly">Curriculum Vitae</a>
+            </footer>
+
+        </div>`;
+    const aboutMe = document.querySelector("#about");
+    aboutMe.innerHTML = contents;
+}
 function onDomContentLoaded() {
     setupIntroSection();
     setupNavigation();
+    setupAboutMe();
 }
 document.addEventListener("DOMContentLoaded", onDomContentLoaded);
 

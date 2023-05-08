@@ -11,16 +11,20 @@ function onDOMContentLoaded()
 
 
     let title = document.title
-    let engineName: keyof typeof enginePagesConfig
-    
+    let engineName: keyof typeof enginePagesConfig  
     if(title.includes("Portfolio"))
         engineName = title.split(" ")[0] as keyof typeof enginePagesConfig
     else
-        engineName = title
+        engineName = title.replace(" ", "") as keyof typeof enginePagesConfig
     
+    alert(`Engine name: ${engineName}`)
     console.log(engineName)
-   
-    setupEnginePage(enginePagesConfig[engineName] as EnginePageConfig)
+
+
+    const enginePagesConfigElement = enginePagesConfig[engineName] as EnginePageConfig;
+    
+    alert(`Engine config: ${enginePagesConfigElement.portfolio?.projects.length}`)
+    setupEnginePage(enginePagesConfigElement)
 }
 
 window.onload = onDOMContentLoaded

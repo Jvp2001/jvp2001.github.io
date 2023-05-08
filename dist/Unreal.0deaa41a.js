@@ -566,9 +566,12 @@ function onDOMContentLoaded() {
     let title = document.title;
     let engineName;
     if (title.includes("Portfolio")) engineName = title.split(" ")[0];
-    else engineName = title;
+    else engineName = title.replace(" ", "");
+    alert(`Engine name: ${engineName}`);
     console.log(engineName);
-    (0, _pageMaker.setupEnginePage)((0, _config.enginePagesConfig)[engineName]);
+    const enginePagesConfigElement = (0, _config.enginePagesConfig)[engineName];
+    alert(`Engine config: ${enginePagesConfigElement.portfolio?.projects.length}`);
+    (0, _pageMaker.setupEnginePage)(enginePagesConfigElement);
 }
 window.onload = onDOMContentLoaded;
 
@@ -674,7 +677,7 @@ const enginePagesConfig = {
         },
         variables: defaultPageVariables
     },
-    "UnityUI": {
+    UnityUI: {
         intro: "",
         portfolio: {
             projects: [
@@ -699,7 +702,7 @@ const enginePagesConfig = {
                         value: "Slider"
                     },
                     element: {
-                        name: "SliderAnimation.mov",
+                        name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/SliderAnimation.mov",
                         showControls: false,
                         maximiseOnClick: true,
                         autoplay: true,
@@ -708,9 +711,12 @@ const enginePagesConfig = {
                 }
             ]
         },
-        variables: defaultPageVariables
+        variables: {
+            ...defaultPageVariables,
+            defaultVideoExtension: ".mov"
+        }
     },
-    "Optimisation Algorithms": {
+    OptimisationAlgorithms: {
         intro: "",
         portfolio: {
             projects: [
@@ -770,6 +776,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setupEnginePage", ()=>setupEnginePage);
 var _fscreen = require("fscreen");
 var _fscreenDefault = parcelHelpers.interopDefault(_fscreen);
+var _config = require("./Config");
 function isOfType(obj, key) {
     return key in obj;
 }
@@ -843,16 +850,9 @@ function createProjectItem(vars, itemInfo) {
 function setupEnginePage(config) {
     let container = document.querySelector("#portfolio div.container");
     console.log(config);
-    const variables = config.variables;
+    const variables = config.variables ?? (0, _config.defaultPageVariables);
     const pages = config.portfolio?.projects;
-    const vars = variables ?? {
-        gitHubPageURL: "",
-        imageUrl: "",
-        rawContentUrl: "",
-        gitHubWebPagesUrl: "",
-        videoUrl: "",
-        defaultVideoExtension: ""
-    };
+    const vars = variables ?? (0, _config.defaultPageVariables);
     const row = document.createElement("div");
     row.classList.add("row");
     console.log(pages);
@@ -861,7 +861,7 @@ function setupEnginePage(config) {
     container.append(row);
 }
 
-},{"fscreen":"8CNsY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8CNsY":[function(require,module,exports) {
+},{"fscreen":"8CNsY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Config":"i4bGg"}],"8CNsY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var key = {

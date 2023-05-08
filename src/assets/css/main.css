@@ -7,6 +7,11 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+:root
+{
+	--standard-text-colour: rgba(255,255,255, 0.5);
+}
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -2113,7 +2118,7 @@ input, select, textarea {
 			position: relative;
 			display: block;
 			font-size: 0.6em;
-			color: rgba(255, 255, 255, 0.5);
+			color:var(--standard-text-colour);
 			line-height: 1.25em;
 			margin: 0.5em 0 0 0;
 		}
@@ -2137,7 +2142,7 @@ input, select, textarea {
 			#nav ul li a {
 				display: block;
 				padding: 0.5em 1.5em 0.5em 1.5em;
-				color: rgba(255, 255, 255, 0.5);
+				color:var(--standard-text-colour);
 				text-decoration: none;
 				outline: 0;
 				border: 0;

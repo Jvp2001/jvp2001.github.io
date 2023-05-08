@@ -83,7 +83,7 @@ export const enginePagesConfig: EnginePagesConfig =
             variables: defaultPageVariables,
 
         },
-        "UnityUI": {
+        UnityUI: {
             intro: "",
             portfolio: {
                 projects: [
@@ -105,7 +105,7 @@ export const enginePagesConfig: EnginePagesConfig =
                         name: "Slider Animation",
                         link: {type: "GitHub", value: "Slider"},
                         element: {
-                            name: "SliderAnimation.mov",
+                            name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/SliderAnimation.mov",
                             showControls: false,
                             maximiseOnClick: true,
                             autoplay: true,
@@ -114,9 +114,9 @@ export const enginePagesConfig: EnginePagesConfig =
                     }
                 ],
             },
-            variables: defaultPageVariables,
+            variables: {...defaultPageVariables, ...{ defaultVideoExtension: ".mov" }},
         },
-        "Optimisation Algorithms": {
+        OptimisationAlgorithms: {
             intro: "",
             portfolio: {
                 projects: [

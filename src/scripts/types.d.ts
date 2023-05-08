@@ -55,10 +55,10 @@ type InternalEnginePageConfig = {variables?: EnginePageConfigVars, intro: string
 
 declare type EnginePageConfig = DeepReadonly<Partial<InternalEnginePageConfig>>
 
-type Engine = "Unreal" | "Unity" | "Godot" | "Other"
+type Engine = "Unreal" | "Unity" | "Godot" | "UnityUI" | "OptimisationAlgorithms" |  "Other"
 
 
-declare type EnginePagesConfig = DeepReadonly<{ [key in Engine]   ?: EnginePageConfig } & {[key: string]: EnginePageConfig}>
+declare type EnginePagesConfig = DeepReadonly<{ [key in Engine]   ?: EnginePageConfig }>
 
 
 
