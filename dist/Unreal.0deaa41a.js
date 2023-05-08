@@ -697,6 +697,28 @@ const enginePagesConfig = {
             ]
         },
         variables: defaultPageVariables
+    },
+    "Optimisation Algorithms": {
+        intro: "",
+        portfolio: {
+            projects: [
+                {
+                    name: "Simulated Annealing",
+                    link: {
+                        type: "GitHub",
+                        value: ""
+                    },
+                    element: {
+                        "name": "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/OptimisationAlgorithms/SimulatedAnnealing.mp4",
+                        "showControls": false,
+                        "maximiseOnClick": true,
+                        "autoplay": true,
+                        "style": imageStyleSettings
+                    }
+                }
+            ]
+        },
+        variables: defaultPageVariables
     }
 };
 
