@@ -625,7 +625,7 @@ const enginePagesConfig = {
         portfolio: {
             projects: [
                 {
-                    name: "Maze Game",
+                    name: "3D Maze Game",
                     link: {
                         type: "GitHub",
                         value: "https://github.com/uniglos/ct4026-20202021-assignment-2-Jvp2001"
@@ -655,6 +655,18 @@ const enginePagesConfig = {
                     },
                     element: {
                         name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Button.png",
+                        style: imageStyleSettings
+                    }
+                },
+                {
+                    //TODO: Find the correct Git repo for this
+                    name: "Crossy Road",
+                    link: {
+                        type: "GitHub",
+                        value: "#"
+                    },
+                    element: {
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.gif",
                         style: imageStyleSettings
                     }
                 }
