@@ -63,9 +63,9 @@ export const enginePagesConfig: EnginePagesConfig =
                     },
                     {
                         name: "UI",
-                        link: {type: "SubPage", value: "https://jvp2001.github.io/src/UnityUI.html"},
+                        link: {type: "SubPage", value: "UnityUI.html"},
                         element: {
-                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/Button.png",
+                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/UI.gif",
                             style: imageStyleSettings
                         }
                     },
@@ -91,10 +91,10 @@ export const enginePagesConfig: EnginePagesConfig =
                         name: "Button Animation",
                         link: {
                             type: "GitHub",
-                            value: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov"
+                            value: ""
                         },
                         element: {
-                            name: "ButtonAnimation.mov",
+                            name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov",
                             showControls: false,
                             maximiseOnClick: true,
                             autoplay: true,

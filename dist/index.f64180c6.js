@@ -569,6 +569,52 @@ function hmrAccept(bundle, id) {
 //
 // window.onload = _ => setupPage()
 //import {enginePagesConfig} from "./Config";
+function setupIntroSection() {
+    const topSection = document.querySelector("section#top");
+    const topHeaderContents = `  <strong><h2>Joshua V Petersen</h2></strong>
+                    <p> Programmer</p><br>
+                    <h3> SECOND YEAR UNDERGRADUATE<br>
+                        BSC (Hons) Computer Games Programming<br>
+                        University of Gloucestershire</h3>`;
+    const topHeader = topSection.querySelector("header");
+    topHeader.innerHTML = topHeaderContents;
+    const topFooterConents = ` <footer>
+                <a href="#contact" class="button scrolly">Contact Me</a>
+            </footer>
+`;
+    const topFooter = topSection.querySelector("footer");
+    topFooter.innerHTML = topFooterConents;
+}
+function goBack() {
+    if (window.history.length > 1) {
+        window.history.back();
+        this.title = "Go Back";
+    } else {
+        window.location.href = "index.html";
+        this.title = "Go Home";
+    }
+}
+function setupNavigation() {
+    const navigation = document.querySelector("nav#nav");
+    navigation.innerHTML = ` <ul>
+                <li class="two-nav-buttons"><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+                <li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+                <li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+                <li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+                <li class="hidden"><a id="back"><span class="icon solid fa-arrow-left">Back</span></a></li>
+            </ul>`;
+    const back = navigation.querySelector("a#back");
+    if (!document.URL.includes(".html")) return;
+    const li = back.parentElement;
+    li.style.cursor = "pointer";
+    li.classList.remove("hidden");
+    back.addEventListener("click", goBack);
+}
+function onDomContentLoaded() {
+    setupIntroSection();
+    setupNavigation();
+}
+document.addEventListener("DOMContentLoaded", onDomContentLoaded);
 
 },{}]},["16AwK","ersBP"], "ersBP", "parcelRequire94c2")
 

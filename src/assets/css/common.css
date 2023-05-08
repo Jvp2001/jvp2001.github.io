@@ -1,9 +1,9 @@
 
-
 h1#title::before
 {
     content: "Joshua Petersen";
 }
+
 div#logo p::before
 {
     content: "Games Programmer";
@@ -29,4 +29,39 @@ dialog::backdrop
 .item h3
 {
     color: darkblue;
+}
+
+
+
+
+li.two-nav-buttons
+{
+
+    /*justify-content: space-between;*/
+}
+
+
+li.two-nav-buttons a, span
+{
+    display: inline-flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    color: rgba(255,255,255, 0.5);
+    
+}
+
+li.two-nav-buttons span
+{
+    
+    text-align: right;
+}
+li.two-nav-buttons a
+{
+    text-align: left;
+}
+
+
+.hidden
+{
+    display: none;
 }

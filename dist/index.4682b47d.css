@@ -6086,31 +6086,6 @@
   font-weight: 900;
 }
 
-h1#title:before {
-  content: "Joshua Petersen";
-}
-
-div#logo p:before {
-  content: "Games Programmer";
-}
-
-.space-between {
-  justify-content: space-between;
-}
-
-dialog::backdrop {
-  background-color: #00000080;
-}
-
-.enlarge:hover {
-  opacity: .0025;
-  transition: transform 2s;
-}
-
-.item h3 {
-  color: #00008b;
-}
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   font-size: 100%;
   font: inherit;
