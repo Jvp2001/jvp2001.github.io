@@ -72,7 +72,7 @@ export const enginePagesConfig: EnginePagesConfig =
                     {
                         //TODO: Find the correct Git repo for this
                         name: "Crossy Road",
-                        link: {type: "GitHub", value: "#"},
+                        link: {type: "GitHub", value: "https://connectglosac-my.sharepoint.com/:f:/g/personal/s4006219_glos_ac_uk/EgoC1mZhd6hAur7BzRrrUHQBxBcyg-KDpmzSJfDjgcuoMA?e=d4pOdn"},
                         element: {
                             name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.gif",
                             style: imageStyleSettings
@@ -91,7 +91,7 @@ export const enginePagesConfig: EnginePagesConfig =
                         name: "Button Animation",
                         link: {
                             type: "GitHub",
-                            value: ""
+                            value: "https://github.com/uniglos/RT-Golem-Project/tree/main/Assets/Scripts/UI"
                         },
                         element: {
                             name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov",
@@ -103,7 +103,7 @@ export const enginePagesConfig: EnginePagesConfig =
                     },
                     {
                         name: "Slider Animation",
-                        link: {type: "GitHub", value: "Slider"},
+                        link: {type: "GitHub", value: "https://github.com/uniglos/RT-Golem-Project/tree/main/Assets/Scripts/UI"},
                         element: {
                             name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/SliderAnimation.mov",
                             showControls: false,

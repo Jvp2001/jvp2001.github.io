@@ -46,7 +46,8 @@ li.two-nav-buttons a, span
     display: inline-flex;
     flex-grow: 1;
     justify-content: space-around;
-    color: rgba(255,255,255, 0.5);
+    /*color: rgba(255,255,255, 0.5);*/
+  
     
 }
 
@@ -125,7 +126,7 @@ div.about-me-contents li
     justify-content: space-between;
     align-items: center;
 }
-div.about-me-contents span
+span
 {
     color: inherit;
 
@@ -173,4 +174,69 @@ div.about-me-contents .engines
 div.about-me-contents .engines ul:last-child
 {
     padding: 0;
+}
+
+
+.centre
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ol.left, ol.left ul
+{
+    text-align: left;
+    list-style-position: inside;
+}
+
+
+.fit-content
+{
+    height: fit-content;
+}
+
+ol.small-gap li
+{
+    margin-bottom: 3%;
+}
+/*
+.about-me-contents, section#about
+{
+    background-color: yellow;
+}*/
+
+header, a, h3, h2
+{
+    background-color: transparent;
+    color: white;
+}
+
+header
+{
+    background-color: rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+#main
+{
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+*
+{
+    color: white;
+}
+
+
+.fill-width
+{
+    width: 100%;
+}
+
+footer
+{
+    align-content: center;
 }

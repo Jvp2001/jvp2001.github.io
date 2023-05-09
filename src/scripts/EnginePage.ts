@@ -17,13 +17,11 @@ function onDOMContentLoaded()
     else
         engineName = title.replace(" ", "") as keyof typeof enginePagesConfig
     
-    alert(`Engine name: ${engineName}`)
     console.log(engineName)
 
 
     const enginePagesConfigElement = enginePagesConfig[engineName] as EnginePageConfig;
     
-    alert(`Engine config: ${enginePagesConfigElement.portfolio?.projects.length}`)
     setupEnginePage(enginePagesConfigElement)
 }
 

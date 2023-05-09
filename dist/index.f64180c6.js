@@ -557,7 +557,7 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"ersBP":[function(require,module,exports) {
-// import "./EmailMessageFormHandler"
+var _emailMessageFormHandler = require("./EmailMessageFormHandler");
 // import { config as portfolioConfig } from "./Config"
 // function setupPage(config: PortfolioConfig = portfolioConfig)
 // {
@@ -569,21 +569,36 @@ function hmrAccept(bundle, id) {
 //
 // window.onload = _ => setupPage()
 //import {enginePagesConfig} from "./Config";
+function setupCVButton() {
+    const cvButton = document.getElementById("cv-button");
+}
 function setupIntroSection() {
     const topSection = document.querySelector("section#top");
-    const topHeaderContents = `  <strong><h2>Joshua V Petersen</h2></strong>
-                    <p> Programmer</p><br>
-                    <h3> SECOND YEAR UNDERGRADUATE<br>
-                        BSC (Hons) Computer Games Programming<br>
-                        University of Gloucestershire</h3>`;
-    const topHeader = topSection.querySelector("header");
-    topHeader.innerHTML = topHeaderContents;
-    const topFooterConents = ` <footer>
+    if (topSection) document.body.removeChild(topSection);
+    const introContents = `  
+  <div class="dark-blue-gradient" 
+  <section id="top" class="centre one dark cover">
+        <div class="container">
+
+            <header>
+                <strong><h2>Joshua V Petersen</h2></strong>
+                <p> Programmer</p><br>
+                <h3> SECOND YEAR UNDERGRADUATE<br>
+                    BSC (Hons) Computer Games Programming<br>
+                    University of Gloucestershire</h3>
+            </header>
+
+            <footer>
                 <a href="#contact" class="button scrolly">Contact Me</a>
             </footer>
+
+        </div>
+    </section>
+    </div>
 `;
-    const topFooter = topSection.querySelector("footer");
-    topFooter.innerHTML = topFooterConents;
+    const main = document.getElementById("main");
+    //insert at top of main
+    main.innerHTML = introContents + main.innerHTML;
 }
 function goBack() {
     if (window.history.length > 1) {
@@ -611,47 +626,133 @@ function setupNavigation() {
     back.addEventListener("click", goBack);
 }
 function setupAboutMe() {
-    const contents = ` <div class="container">
-
-            <header>
-                <h2>About Me</h2>
-            </header>
-
-            <!--            <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>-->
-
-            <div class="about-me-contents">
-                <div class="languages">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li><span>C++</span></li>
-                        <li><span>C#</span></li>
-                        <li><span>PYTHON</span></li>
-                        <li><span>JAVA</span></li>
-                    </ul>
-
+    const contents = `<div class="dark-blue-gradient">
+     <div class=" container">
+    
+                <header>
+                    <h2>About Me</h2>
+                </header>
+    
+                <!--            <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>-->
+    
+                <div class="about-me-contents">
+                    <div class="languages">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li><span>C++</span></li>
+                            <li><span>C#</span></li>
+                            <li><span>PYTHON</span></li>
+                            <li><span>JAVA</span></li>
+                        </ul>
+    
+                    </div>
+                    <div class="engines">
+                        <h3>Engines</h3>
+                        <ul>
+                            <li><span>Unreal</span></li>
+                            <li><span>Unity</span></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="engines">
-                    <h3>Engines</h3>
-                    <ul>
-                        <li><span>Unreal</span></li>
-                        <li><span>Unity</span></li>
-                    </ul>
-                </div>
-            </div>
-            <footer>
-                <a href="#contact" class="button scrolly">Curriculum Vitae</a>
-            </footer>
-
-        </div>`;
+                <footer>
+                    <a href="#cv-button" class="button scrolly">Curriculum Vitae</a>
+                </footer>
+    
+            </div></div>`;
     const aboutMe = document.querySelector("#about");
+    // aboutMe.style.backgroundColor = "rgba(255,255,0,0.47)"
     aboutMe.innerHTML = contents;
+}
+function setupContact() {
+    const contents = ` <!-- Contact -->
+ <div class="dark-blue-gradient">
+     <section id="contact" class="dark-blue-gradient four">
+         <div class="container">
+ 
+             <header>
+                 <h2>Contact</h2>
+             </header>
+ 
+             <p>If you would like to contact me, please fill in the form below and I will reply to you as soon as I can.</p>
+             <!--            TODO: Fix contact form system-->
+             <form id="email-form" method="post" action="https://formspree.io/f/xyyaowlw">
+                 <div class="row">
+                     <div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name"/></div>
+                     <div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email"/></div>
+                     <div class="col-12">
+                         <textarea name="message" placeholder="Message"></textarea>
+                     </div>
+                     <div class="col-12">
+                         <input type="submit" value="Send Message"/>
+                     </div>
+                 </div>
+             </form>
+ 
+         </div>
+     </section>
+     </div>`;
+    const main = document.getElementById("main");
+    main.innerHTML += contents;
+}
+//Q: What does this do?
+//A: It wraps the element in a div with the class dark-blue-gradient
+function wrapElementWithDiv(element) {
+    const div = document.createElement("div");
+    div.classList.add("dark-blue-gradient");
+    element.parentElement?.replaceChild(div, element);
+    div.appendChild(element);
+}
+function wrapElementsContentsInDiv(element) {
+    // wrap the contents of the element in a div with the class dark-blue-gradient
+    const div = document.createElement("div");
+    div.classList.add("dark-blue-gradient");
+    element.innerHTML = div.outerHTML + element.innerHTML;
+}
+function removePageFooter() {
+    const footerElement = document.querySelector("#footer");
+    if (footerElement) document.removeChild(footerElement);
 }
 function onDomContentLoaded() {
     setupIntroSection();
     setupNavigation();
     setupAboutMe();
+    setupContact();
+    removePageFooter();
+    wrapElementWithDiv(document.querySelector("#about"));
+    wrapElementsContentsInDiv(document.querySelector("#portfolio"));
+    wrapElementWithDiv(document.querySelector("#top"));
 }
 document.addEventListener("DOMContentLoaded", onDomContentLoaded);
+
+},{"./EmailMessageFormHandler":"eREmG"}],"eREmG":[function(require,module,exports) {
+const emailForm = document.getElementById("email-form");
+const meaningOfLife = 56;
+//@ts-ignore
+async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    console.log(formData.get("subject"));
+    fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    }).then((response)=>{
+        if (response.ok) {
+            alert(`Thank you for your message, ${formData.get("name")}.\n I will get back to you as soon as possible.`);
+            form.reset();
+        } else response.json().then((data)=>{
+            if ("errors" in data) {
+                const errors = data.errors;
+                const errorMessages = Object.values(errors).join("\n");
+                alert(errorMessages);
+            } else alert("An unknown error occurred.");
+        });
+    }).catch((_)=>alert("An unknown error occurred."));
+}
+emailForm.addEventListener("submit", handleSubmit);
 
 },{}]},["16AwK","ersBP"], "ersBP", "parcelRequire94c2")
 

@@ -567,10 +567,8 @@ function onDOMContentLoaded() {
     let engineName;
     if (title.includes("Portfolio")) engineName = title.split(" ")[0];
     else engineName = title.replace(" ", "");
-    alert(`Engine name: ${engineName}`);
     console.log(engineName);
     const enginePagesConfigElement = (0, _config.enginePagesConfig)[engineName];
-    alert(`Engine config: ${enginePagesConfigElement.portfolio?.projects.length}`);
     (0, _pageMaker.setupEnginePage)(enginePagesConfigElement);
 }
 window.onload = onDOMContentLoaded;
@@ -666,7 +664,7 @@ const enginePagesConfig = {
                     name: "Crossy Road",
                     link: {
                         type: "GitHub",
-                        value: "#"
+                        value: "https://connectglosac-my.sharepoint.com/:f:/g/personal/s4006219_glos_ac_uk/EgoC1mZhd6hAur7BzRrrUHQBxBcyg-KDpmzSJfDjgcuoMA?e=d4pOdn"
                     },
                     element: {
                         name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.gif",
@@ -685,7 +683,7 @@ const enginePagesConfig = {
                     name: "Button Animation",
                     link: {
                         type: "GitHub",
-                        value: ""
+                        value: "https://github.com/uniglos/RT-Golem-Project/tree/main/Assets/Scripts/UI"
                     },
                     element: {
                         name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/ButtonAnimation.mov",
@@ -699,7 +697,7 @@ const enginePagesConfig = {
                     name: "Slider Animation",
                     link: {
                         type: "GitHub",
-                        value: "Slider"
+                        value: "https://github.com/uniglos/RT-Golem-Project/tree/main/Assets/Scripts/UI"
                     },
                     element: {
                         name: "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/videos/Unity/SliderAnimation.mov",
