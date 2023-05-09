@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"16AwK":[function(require,module,exports) {
+})({"5psjT":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "ab8ff377f64180c6";
+module.bundle.HMR_BUNDLE_ID = "6f2e184ff8e105d9";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -556,213 +556,9 @@ function hmrAccept(bundle, id) {
     });
 }
 
-},{}],"ersBP":[function(require,module,exports) {
-//import "./EmailMessageFormHandler"
-// import { config as portfolioConfig } from "./Config"
-// function setupPage(config: PortfolioConfig = portfolioConfig)
-// {
-//     const titleHeading = document.querySelector("h1#title") as HTMLHeadingElement
-//     titleHeading.textContent = config.titleHeading.content
-//    
-// }
-//
-//
-// window.onload = _ => setupPage()
-//import {enginePagesConfig} from "./Config";
-// function setupCVButton()
-// {
-//     const cvButton = document.getElementById("cv-button") as HTMLAnchorElement
-//     const url = "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/assets/documents/Joshua%20Petersen%20CV%202023.pdf"
-//     cvButton.onclick = _ => window.open(url, "_blank");
-//     cvButton.href = "#"
-//    
-// }
-function setupIntroSection() {
-    // const topSection = document.querySelector("section#top") as HTMLElement
-    // if(topSection)
-    // {
-    //     document.body.removeChild(topSection)
-    // }
-    const introContents = `  
-  <div class="dark-blue-gradient"> 
-  <section id="top" class="centre one dark cover">
-        <div class="container">
+},{}],"eREmG":[function(require,module,exports) {
+// emailForm.addEventListener('submit', handleSubmit)
 
-            <header>
-                <strong><h2>Joshua V Petersen</h2></strong>
-                <p> Programmer</p><br>
-                <h3> SECOND YEAR UNDERGRADUATE<br>
-                    BSC (Hons) Computer Games Programming<br>
-                    University of Gloucestershire</h3>
-            </header>
+},{}]},["5psjT","eREmG"], "eREmG", "parcelRequire94c2")
 
-            <footer>
-                <a href="#contact" class="button scrolly">Contact Me</a>
-            </footer>
-
-        </div>
-    </section>
-    </div>
-`;
-    const main = document.getElementById("main");
-    //insert at top of main
-    main.innerHTML = introContents + main.innerHTML;
-}
-function goBack() {
-    if (window.history.length > 1) {
-        window.history.back();
-        this.title = "Go Back";
-    } else {
-        window.location.href = "index.html";
-        this.title = "Go Home";
-    }
-}
-function setupNavigation() {
-    const navigation = document.querySelector("nav#nav");
-    const title = document.querySelector("title");
-    navigation.innerHTML = ` <ul>
-                <li class="two-nav-buttons"><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-                <li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">${title.title}</span></a></li>
-                <li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-                <li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-                <li class="hidden"><a id="back"><span class="icon solid fa-arrow-left">Back</span></a></li>
-            </ul>`;
-    const back = navigation.querySelector("a#back");
-    if (!document.URL.includes(".html")) return;
-    const li = back.parentElement;
-    li.style.cursor = "pointer";
-    li.classList.remove("hidden");
-    back.addEventListener("click", goBack);
-}
-function setupAboutMe() {
-    const contents = `<div class="dark-blue-gradient" xmlns="http://www.w3.org/1999/html">
-     <div class=" container">
-    
-                <header>
-                    <h2>About Me</h2>
-                </header>
-    
-                <!--            <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>-->
-    
-                <div class="about-me-contents">
-                    <div class="languages">
-                        <h3>Languages</h3>
-                        <ul>
-                            <li><span>C++</span></li>
-                            <li><span>C#</span></li>
-                            <li><span>PYTHON</span></li>
-                            <li><span>JAVA</span></li>
-                        </ul>
-    
-                    </div>
-                    <div class="engines">
-                        <h3>Engines</h3>
-                        <ul>
-                            <li><span>Unreal</span></li>
-                            <li><span>Unity</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <footer>
-                <button onclick="window.open('https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/assets/documents/Joshua%20Petersen%20CV%202023.pdf')">
-                    <a href="#cv-button" target="_blank" class="inactive-link button scrolly">Curriculum Vitae</a>
-                </button>
-                </footer>
-    
-            </div></div>`;
-    const aboutMe = document.querySelector("#about");
-    // aboutMe.style.backgroundColor = "rgba(255,255,0,0.47)"
-    aboutMe.innerHTML = contents;
-}
-function setupContact() {
-    const contents = ` <!-- Contact -->
- <div class="dark-blue-gradient">
-     <section id="contact" class="dark-blue-gradient four">
-         <div class="container">
- 
-             <header>
-                 <h2>Contact</h2>
-             </header>
- 
-             <p>If you would like to contact me, please fill in the form below and I will reply to you as soon as I can.</p>
-             <!--            TODO: Fix contact form system-->
-             <form id="email-form" method="post" action="https://formspree.io/f/xyyaowlw" onsubmit="alert('Submit')">
-                 <div class="row">
-                     <div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required="required"/></div>
-                     <div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" required="required"/></div>
-                     <div class="col-12">
-                         <textarea name="message" placeholder="Message" required="required"></textarea>
-                     </div>
-                     <div class="col-12">
-                         <input type="submit" value="Send Message"/>
-                     </div>
-                 </div>
-             </form>
- 
-         </div>
-     </section>
-     </div>`;
-    const main = document.getElementById("main");
-    main.innerHTML += contents;
-}
-const emailForm = document.querySelector("form");
-//@ts-ignore
-async function handleSubmit(event) {
-    event.preventDefault();
-    alert("Submitting form.");
-    const form = event.target;
-    const formData = new FormData(form);
-    console.log(formData.get("subject"));
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-            "Accept": "application/json"
-        }
-    }).then((response)=>{
-        if (response.ok) {
-            console.log("Response was ok.");
-            alert(`Thank you for your message, ${formData.get("name")}.\n I will get back to you as soon as possible.`);
-            form.reset();
-        } else response.json().then((data)=>{
-            if ("errors" in data) {
-                const errors = data.errors;
-                const errorMessages = Object.values(errors).join("\n");
-                alert(errorMessages);
-            } else alert("An unknown error occurred.");
-        });
-    }).catch((_)=>alert("An unknown error occurred."));
-}
-//Q: What does this do?
-//A: It wraps the element in a div with the class dark-blue-gradient
-function wrapElementWithDiv(element) {
-    const div = document.createElement("div");
-    div.classList.add("dark-blue-gradient");
-    element.parentElement?.replaceChild(div, element);
-    div.appendChild(element);
-}
-function wrapElementsContentsInDiv(element) {
-    // wrap the contents of the element in a div with the class dark-blue-gradient
-    const div = document.createElement("div");
-    div.classList.add("dark-blue-gradient");
-    element.innerHTML = div.outerHTML + element.innerHTML;
-}
-function removePageFooter() {
-    const footerElement = document.querySelector("#footer");
-    if (footerElement) document.removeChild(footerElement);
-}
-function onDomContentLoaded() {
-    setupIntroSection();
-    setupNavigation();
-    setupAboutMe();
-    setupContact();
-    removePageFooter();
-    wrapElementWithDiv(document.querySelector("#about"));
-    wrapElementsContentsInDiv(document.querySelector("#portfolio"));
-    wrapElementWithDiv(document.querySelector("#top"));
-}
-document.addEventListener("DOMContentLoaded", onDomContentLoaded);
-
-},{}]},["16AwK","ersBP"], "ersBP", "parcelRequire94c2")
-
-//# sourceMappingURL=index.f64180c6.js.map
+//# sourceMappingURL=index.f8e105d9.js.map

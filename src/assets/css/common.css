@@ -247,3 +247,9 @@ footer
     pointer-events: none;
     cursor: default;
 }
+
+form input:invalid + input[type="submit"]
+{
+    opacity: 0.5;
+    pointer-events: none;
+}
