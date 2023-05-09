@@ -557,7 +557,7 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"ersBP":[function(require,module,exports) {
-var _emailMessageFormHandler = require("./EmailMessageFormHandler");
+//import "./EmailMessageFormHandler"
 // import { config as portfolioConfig } from "./Config"
 // function setupPage(config: PortfolioConfig = portfolioConfig)
 // {
@@ -569,14 +569,22 @@ var _emailMessageFormHandler = require("./EmailMessageFormHandler");
 //
 // window.onload = _ => setupPage()
 //import {enginePagesConfig} from "./Config";
-function setupCVButton() {
-    const cvButton = document.getElementById("cv-button");
-}
+// function setupCVButton()
+// {
+//     const cvButton = document.getElementById("cv-button") as HTMLAnchorElement
+//     const url = "https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/assets/documents/Joshua%20Petersen%20CV%202023.pdf"
+//     cvButton.onclick = _ => window.open(url, "_blank");
+//     cvButton.href = "#"
+//    
+// }
 function setupIntroSection() {
-    const topSection = document.querySelector("section#top");
-    if (topSection) document.body.removeChild(topSection);
+    // const topSection = document.querySelector("section#top") as HTMLElement
+    // if(topSection)
+    // {
+    //     document.body.removeChild(topSection)
+    // }
     const introContents = `  
-  <div class="dark-blue-gradient" 
+  <div class="dark-blue-gradient"> 
   <section id="top" class="centre one dark cover">
         <div class="container">
 
@@ -611,9 +619,10 @@ function goBack() {
 }
 function setupNavigation() {
     const navigation = document.querySelector("nav#nav");
+    const title = document.querySelector("title");
     navigation.innerHTML = ` <ul>
                 <li class="two-nav-buttons"><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-                <li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+                <li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">${title.title}</span></a></li>
                 <li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
                 <li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
                 <li class="hidden"><a id="back"><span class="icon solid fa-arrow-left">Back</span></a></li>
@@ -626,7 +635,7 @@ function setupNavigation() {
     back.addEventListener("click", goBack);
 }
 function setupAboutMe() {
-    const contents = `<div class="dark-blue-gradient">
+    const contents = `<div class="dark-blue-gradient" xmlns="http://www.w3.org/1999/html">
      <div class=" container">
     
                 <header>
@@ -655,7 +664,9 @@ function setupAboutMe() {
                     </div>
                 </div>
                 <footer>
-                    <a href="#cv-button" class="button scrolly">Curriculum Vitae</a>
+                <button onclick="window.open('CVViewer.html')">
+                    <a href="#cv-button" target="_blank" class="inactive-link button scrolly">Curriculum Vitae</a>
+                </button>
                 </footer>
     
             </div></div>`;
@@ -723,36 +734,6 @@ function onDomContentLoaded() {
     wrapElementWithDiv(document.querySelector("#top"));
 }
 document.addEventListener("DOMContentLoaded", onDomContentLoaded);
-
-},{"./EmailMessageFormHandler":"eREmG"}],"eREmG":[function(require,module,exports) {
-const emailForm = document.getElementById("email-form");
-const meaningOfLife = 56;
-//@ts-ignore
-async function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    console.log(formData.get("subject"));
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-            "Accept": "application/json"
-        }
-    }).then((response)=>{
-        if (response.ok) {
-            alert(`Thank you for your message, ${formData.get("name")}.\n I will get back to you as soon as possible.`);
-            form.reset();
-        } else response.json().then((data)=>{
-            if ("errors" in data) {
-                const errors = data.errors;
-                const errorMessages = Object.values(errors).join("\n");
-                alert(errorMessages);
-            } else alert("An unknown error occurred.");
-        });
-    }).catch((_)=>alert("An unknown error occurred."));
-}
-emailForm.addEventListener("submit", handleSubmit);
 
 },{}]},["16AwK","ersBP"], "ersBP", "parcelRequire94c2")
 

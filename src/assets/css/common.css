@@ -240,3 +240,10 @@ footer
 {
     align-content: center;
 }
+
+
+.inactive-link
+{
+    pointer-events: none;
+    cursor: default;
+}

@@ -4,7 +4,7 @@
   ],
   "scripts": {
     "start": "parcel serve src/index.html",
-    "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url . && parcel build src/UnityUI.html",
+    "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url . && parcel build src/UnityUI.html && parcel build src/CVViewer.html",
     "build and run": "npm run build && npm run start",
     "publish": "gh-pages-clean dist && gh-pages -d dist",
     "build and publish": "npm run build && npm run publish",
@@ -13,12 +13,15 @@
   "homepage": "https://jvp2001.github.io",
   "devDependencies": {
     "@types/fscreen": "^1.0.1",
+    "buffer": "^5.7.1",
     "cross-env": "^5.2.0",
     "gh-pages": "^5.0.0",
     "parcel": "^2.0.1",
+    "process": "^0.11.10",
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "fscreen": "^1.2.0"
+    "fscreen": "^1.2.0",
+    "pdfjs-dist": "^3.6.172"
   }
 }
