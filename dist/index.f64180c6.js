@@ -596,9 +596,10 @@ function setupIntroSection() {
                     University of Gloucestershire</h3>
             </header>
 
+           <div class="fill-width centre">
             <footer>
-                <a href="#contact" class="button scrolly">Contact Me</a>
-            </footer>
+                           <a href="#contact" class="button scrolly">Contact Me</a>
+                       </footer></div>
 
         </div>
     </section>
@@ -619,20 +620,45 @@ function goBack() {
 }
 function setupNavigation() {
     const navigation = document.querySelector("nav#nav");
-    const title = document.querySelector("title");
     navigation.innerHTML = ` <ul>
-                <li class="two-nav-buttons"><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-                <li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">${title.title}</span></a></li>
-                <li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-                <li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-                <li class="hidden"><a id="back"><span class="icon solid fa-arrow-left">Back</span></a></li>
+                <nav id="nav">
+							<ul>
+								<li><a href="index.html" id=""><span class="nav-link-highlight icon solid fa-home">Home</span></a></li>
+								<li><a href="#top" id="top-link"><span class="nav-link-highlight icon solid fa-arrow-up">Intro</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link"><span class="nav-link-highlight icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="#about" id="about-link"><span class="nav-link-highlight icon solid fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link"><span class="nav-link-highlight icon solid fa-envelope">Contact</span></a></li>
+								
+							</ul>
+						</nav>
             </ul>`;
-    const back = navigation.querySelector("a#back");
-    if (!document.URL.includes(".html")) return;
-    const li = back.parentElement;
-    li.style.cursor = "pointer";
-    li.classList.remove("hidden");
-    back.addEventListener("click", goBack);
+    console.log(document.URL);
+    if (document.URL.endsWith("index.html") || document.URL.endsWith("/") || window.history.length <= 1) return;
+    // 	<li style="display: none;"><a href="#" id="back"><span class="nav-link-highlight icon solid fa-arrow-left">Back</span></a></li>
+    const backItem = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#";
+    a.id = "back";
+    a.addEventListener("click", goBack);
+    const span = document.createElement("span");
+    span.className = "nav-link-highlight icon solid fa-arrow-left";
+    span.textContent = "Back";
+    a.appendChild(span);
+    backItem.appendChild(a);
+    const ul = navigation.querySelector("ul");
+    ul.appendChild(backItem);
+}
+function setupSocialLinks() {
+    const socialLinks = document.querySelector("#header .bottom ul");
+    if (socialLinks) socialLinks.remove();
+    const contents = `
+    <ul class="icons">
+            <li><a href="https://github.com/jvp2001" class="icon brands fa-github"><span class="label">Github</span></a></li>
+            <li><a href="mailto://joshuavpetersen01@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+`;
+    const bottomDiv = document.querySelector("#header div.bottom");
+    bottomDiv.innerHTML = contents;
 }
 function setupAboutMe() {
     const contents = `<div class="dark-blue-gradient" xmlns="http://www.w3.org/1999/html">
@@ -662,12 +688,20 @@ function setupAboutMe() {
                             <li><span>Unity</span></li>
                         </ul>
                     </div>
+
                 </div>
+                  <p>Undergraduate programmer currently studying Computer Games Programming at the University of Gloucestershire, 
+  whose goal is to work as a programmer in the games industry.
+   I have had to learn to improve my organisation and communication skills during my academic life. I have worked hard throughout all areas of my life to enhance these skills as well as learn to be flexible and adaptable. At university, I have particularly enjoyed learning more about Unreal Engine.
+ </p>
+                <div class="fill-width centre">
                 <footer>
-                <button onclick="window.open('https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/assets/documents/Joshua%20Petersen%20CV%202023.pdf')">
-                    <a href="#cv-button" target="_blank" class="inactive-link button scrolly">Curriculum Vitae</a>
-                </button>
+                               
+                    <a href="https://github.com/Jvp2001/jvp2001.github.io/raw/main/src/assets/documents/JoshuaPetersenCV2023.pdf" target="_blank" class="button scrolly">Curriculum Vitae</a>
+                               
+                               
                 </footer>
+                </div>
     
             </div></div>`;
     const aboutMe = document.querySelector("#about");
@@ -754,14 +788,37 @@ function removePageFooter() {
 function onDomContentLoaded() {
     setupIntroSection();
     setupNavigation();
+    setupSocialLinks();
     setupAboutMe();
     setupContact();
     removePageFooter();
     wrapElementWithDiv(document.querySelector("#about"));
     wrapElementsContentsInDiv(document.querySelector("#portfolio"));
     wrapElementWithDiv(document.querySelector("#top"));
+    window.addEventListener("scroll", navHighlighter);
 }
 document.addEventListener("DOMContentLoaded", onDomContentLoaded);
+let sectionId;
+const sections = document.querySelectorAll("section[id]");
+function navHighlighter() {
+    let scrollY = window.scrollY;
+    let sectionId = "";
+    sections.forEach((current)=>{
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute("id");
+        console.log(sectionId);
+        /*
+        If the current scroll position enters the space where the current section is,
+        then highlight the current section in the navigation bar.
+        
+         */ if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            const selector = document.querySelector(`#nav a[href*=${sectionId}]`);
+            console.log(selector);
+            selector.classList.add("active-link");
+        } else document.querySelector(`#nav a[href*=${sectionId}]`).classList.remove("active-link");
+    });
+}
 
 },{}]},["16AwK","ersBP"], "ersBP", "parcelRequire94c2")
 

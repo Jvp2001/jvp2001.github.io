@@ -561,7 +561,7 @@ var _config = require("./Config");
 // Generate me a regex that finds all console.log statements. The contents of the the log functions could be anything, so we need to use a non-greedy wildcard.
 // const consoleLogRegex = /console\.log\((.*?)\)/g
 var _mainCss = require("../assets/css/main.css");
-var _pageMaker = require("./PageMaker");
+var _pageGenerator = require("./PageGenerator");
 function onDOMContentLoaded() {
     let title = document.title;
     let engineName;
@@ -569,11 +569,11 @@ function onDOMContentLoaded() {
     else engineName = title.replace(" ", "");
     console.log(engineName);
     const enginePagesConfigElement = (0, _config.enginePagesConfig)[engineName];
-    (0, _pageMaker.setupEnginePage)(enginePagesConfigElement);
+    (0, _pageGenerator.setupEnginePage)(enginePagesConfigElement);
 }
 window.onload = onDOMContentLoaded;
 
-},{"./Config":"i4bGg","../assets/css/main.css":"iDtWN","./PageMaker":"mt6YI"}],"i4bGg":[function(require,module,exports) {
+},{"./Config":"i4bGg","../assets/css/main.css":"iDtWN","./PageGenerator":"3Co4D"}],"i4bGg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "config", ()=>config);
@@ -637,7 +637,6 @@ const enginePagesConfig = {
                     }
                 },
                 {
-                    //TODO: Find the correct Git repo for this
                     name: "3D level",
                     link: {
                         type: "GitHub",
@@ -667,7 +666,7 @@ const enginePagesConfig = {
                         value: "https://connectglosac-my.sharepoint.com/:f:/g/personal/s4006219_glos_ac_uk/EgoC1mZhd6hAur7BzRrrUHQBxBcyg-KDpmzSJfDjgcuoMA?e=d4pOdn"
                     },
                     element: {
-                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.gif",
+                        name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.png",
                         style: imageStyleSettings
                     }
                 }
@@ -768,7 +767,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"iDtWN":[function() {},{}],"mt6YI":[function(require,module,exports) {
+},{}],"iDtWN":[function() {},{}],"3Co4D":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setupEnginePage", ()=>setupEnginePage);
@@ -781,6 +780,7 @@ function isOfType(obj, key) {
 function createProjectItemElement(vars, element) {
     if (isOfType(element, "showControls")) {
         const videoTag = document.createElement("video");
+        videoTag.classList.add("clickable");
         videoTag.title = "Click to maximise and play.";
         // videoTag.src = `${vars.rawContentUrl}/${vars.videoUrl}/${element.name}`.replace("//", "/")
         videoTag.src = `${element.name}`;
@@ -808,6 +808,7 @@ function createProjectItemElement(vars, element) {
         const imgTag = document.createElement("img");
         // imgTag.src = `${vars.rawContentUrl}/${vars.imageUrl}/${element.name}`.replace("//", "/")
         imgTag.src = `${element.name}`;
+        imgTag.classList.add("centre");
         const size = element.style.size;
         imgTag.style.width = `${size.width}px`;
         imgTag.style.height = `${size.height}px`;
@@ -819,8 +820,7 @@ function createProjectItem(vars, itemInfo) {
     const root = document.createElement("div");
     root.classList.add("col-4", "col-12-mobile");
     const article = document.createElement("article");
-    article.classList.add("item");
-    article.title = "Hover to enlarge";
+    article.classList.add("item", "centre");
     const aTag = document.createElement("a");
     switch(itemInfo.link.type){
         case "GitHub":
@@ -836,6 +836,7 @@ function createProjectItem(vars, itemInfo) {
     const projectTag = createProjectItemElement(vars, itemInfo.element);
     //imgTag.style.objectFit = itemInfo.image.style.fit ?? "cover"
     const header = document.createElement("header");
+    header.classList.add("fill-width");
     const h3Tag = document.createElement("h3");
     h3Tag.textContent = itemInfo.name;
     console.log(itemInfo.name);
@@ -853,13 +854,11 @@ function setupEnginePage(config) {
     const vars = variables ?? (0, _config.defaultPageVariables);
     const row = document.createElement("div");
     row.classList.add("row");
-    console.log(pages);
     for (const page of pages)row.append(createProjectItem(vars, page));
-    console.log("Is container valid? ", container != null);
     container.append(row);
 }
 
-},{"fscreen":"8CNsY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Config":"i4bGg"}],"8CNsY":[function(require,module,exports) {
+},{"fscreen":"8CNsY","./Config":"i4bGg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8CNsY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var key = {

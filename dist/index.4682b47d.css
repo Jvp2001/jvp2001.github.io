@@ -11,7 +11,7 @@
 
 .fa-lg {
   vertical-align: -.0667em;
-  font-size: 1.33333em;
+  font-size: 1.33333px;
   line-height: .75em;
 }
 
@@ -6087,7 +6087,7 @@
 }
 
 :root {
-  --standard-text-colour: #ffffffc9;
+  --standard-text-colour: white;
   color: var(--standard-text-colour);
 }
 
@@ -6095,7 +6095,7 @@ body {
   background-color: #0000;
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
@@ -6180,7 +6180,7 @@ input, textarea, select {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #666;
+  color: inherit;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -6191,7 +6191,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 a strong, h2 a strong, h3 a strong, h4 a strong, h5 a strong, h6 a strong {
-  color: #333;
+  color: inherit;
 }
 
 h2 {
@@ -6200,7 +6200,7 @@ h2 {
 }
 
 h2.alt {
-  color: #888;
+  color: inherit;
 }
 
 h2.alt strong {
@@ -6224,7 +6224,7 @@ footer {
 }
 
 strong, b {
-  color: #666;
+  color: inherit;
   font-weight: 300;
 }
 
@@ -8104,7 +8104,7 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 }
 
 #nav ul li a {
-  color: var(--standard-text-colour);
+  color: inherit;
   border: 0;
   outline: 0;
   padding: .5em 1.5em;
@@ -8120,7 +8120,7 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 }
 
 #nav ul li a span:before {
-  color: #41484c;
+  color: initial;
   text-align: center;
   width: 1.25em;
   line-height: 1.75em;
@@ -8172,6 +8172,7 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 
 #main > section {
   text-align: center;
+  background-image: url("overlay.38ff71c0.png");
   margin: 0;
   padding: 4em 0;
   overflow: hidden;

@@ -9,7 +9,7 @@
 
 :root
 {
-	--standard-text-colour: rgba(255, 255, 255, 0.79);
+	--standard-text-colour: white;
 	color: var(--standard-text-colour);
 }
 
@@ -26,7 +26,7 @@ u, i, center, dl, dt, dd, ol, ul, li, fieldset,
 form, label, legend, table, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
+header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -122,7 +122,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
-		color: #666;
+		color: inherit; /*var(--standard-text-colour);*/
 		line-height: 1.5em;
 	}
 
@@ -132,7 +132,7 @@ input, select, textarea {
 	}
 
 		h1 a strong, h2 a strong, h3 a strong, h4 a strong, h5 a strong, h6 a strong {
-			color: #333;
+			color: inherit;
 			/*Q: what colour is #333?
 			A: #333 is a dark grey colour.
 			 */
@@ -144,7 +144,7 @@ input, select, textarea {
 	}
 
 		h2.alt {
-			color: #888;
+			color: inherit;
 		}
 
 			h2.alt strong {
@@ -169,7 +169,7 @@ input, select, textarea {
 
 	strong, b {
 		font-weight: 300;
-		color: #666;
+		color: inherit;
 	}
 
 	em, i {
@@ -2149,7 +2149,7 @@ input, select, textarea {
 			#nav ul li a {
 				display: block;
 				padding: 0.5em 1.5em 0.5em 1.5em;
-				color:var(--standard-text-colour);
+				color:inherit;
 				text-decoration: none;
 				outline: 0;
 				border: 0;
@@ -2168,7 +2168,7 @@ input, select, textarea {
 					#nav ul li a span:before {
 						position: absolute;
 						left: 0;
-						color: #41484c;
+						color: initial;
 						text-align: center;
 						width: 1.25em;
 						line-height: 1.75em;
@@ -2226,7 +2226,7 @@ input, select, textarea {
 			padding: 4em 0;
 			box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
 			text-align: center;
-		
+			background-image: url("images/overlay.png");
 		}
 
 			#main > section.dark {

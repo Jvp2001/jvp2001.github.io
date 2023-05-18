@@ -22,6 +22,8 @@ type ProjectLinkConfig =
     | { type: "Other", url: string }
 type ObjectFitValue = "contain" | "cover" | "scale" | "none" | "fill"
 
+
+type KeyOfProjectLinkConfig = keyof ProjectLinkConfig
 declare type MediaElementStyle = { size: { width: number, height: number }, fit: ObjectFitValue };
 declare type VideoConfig = {
     name: string,
@@ -64,3 +66,5 @@ declare type EnginePagesConfig = DeepReadonly<{ [key in Engine]   ?: EnginePageC
 
 
 
+
+type

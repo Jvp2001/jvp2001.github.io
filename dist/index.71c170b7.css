@@ -1,3 +1,7 @@
+* {
+  --item-margin: 1em;
+}
+
 h1#title:before {
   content: "Joshua Petersen";
 }
@@ -35,10 +39,6 @@ li.two-nav-buttons span {
 
 li.two-nav-buttons a {
   text-align: left;
-}
-
-.hidden {
-  display: none;
 }
 
 div.about-me-contents span {
@@ -124,8 +124,8 @@ header {
   background: linear-gradient(0deg, #020024 0%, #090979 35%, #00d4ff 100%);
 }
 
-* {
-  color: #fff;
+strong, p, li {
+  color: var(--standard-text-colour);
 }
 
 .fill-width {
@@ -133,7 +133,21 @@ header {
 }
 
 footer {
+  margin-bottom: var(--item-margin);
   align-content: center;
+  margin-top: 0;
+}
+
+.item {
+  margin-bottom: var(--item-margin);
+}
+
+header, h2 {
+  margin-top: var(--item-margin);
+}
+
+li span, ol span {
+  color: var(--standard-text-colour);
 }
 
 .inactive-link {
@@ -144,6 +158,31 @@ footer {
 form input:invalid + input[type="submit"] {
   opacity: .5;
   pointer-events: none;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+#about .container p, .container header {
+  margin: 0 0 2em;
+}
+
+#nav a:hover, #nav li:hover, .nav-link-highlight:hover, #nav ul li span:hover, #nav ul li span:hover:before, #nav a[role="link"]:hover, #nav .solid:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+#nav span {
+  color: #d3d3d3;
+}
+
+.languages, .engines {
+  color: var(--standard-text-colour);
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=index.71c170b7.css.map */

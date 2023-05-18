@@ -10,6 +10,7 @@ export const defaultPageVariables: EnginePageConfigVars =
         videoUrl: "videos",
         defaultVideoExtension: ".mp4"
     }
+    
 const imageStyleSettings: MediaElementStyle = {size: {width: 200, height: 200}, fit: "contain"}
 export const enginePagesConfig: EnginePagesConfig =
     {
@@ -50,7 +51,6 @@ export const enginePagesConfig: EnginePagesConfig =
 
                     },
                     {
-                        //TODO: Find the correct Git repo for this
                         name: "3D level",
                         link: {
                             type: "GitHub",
@@ -74,7 +74,7 @@ export const enginePagesConfig: EnginePagesConfig =
                         name: "Crossy Road",
                         link: {type: "GitHub", value: "https://connectglosac-my.sharepoint.com/:f:/g/personal/s4006219_glos_ac_uk/EgoC1mZhd6hAur7BzRrrUHQBxBcyg-KDpmzSJfDjgcuoMA?e=d4pOdn"},
                         element: {
-                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.gif",
+                            name: "https://raw.githubusercontent.com/Jvp2001/jvp2001.github.io/main/src/images/Unity/CrossyRoad.png",
                             style: imageStyleSettings
                         },
                     }

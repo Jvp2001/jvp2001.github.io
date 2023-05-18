@@ -1,4 +1,10 @@
 
+*
+{
+    --item-margin: 1em;
+}
+
+
 h1#title::before
 {
     content: "Joshua Petersen";
@@ -225,9 +231,9 @@ header
     background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
-*
+strong, p, li
 {
-    color: white;
+    color: var(--standard-text-colour);
 }
 
 
@@ -239,6 +245,21 @@ header
 footer
 {
     align-content: center;
+    margin-bottom: var(--item-margin);
+    margin-top: 0;
+}
+.item
+{
+    margin-bottom: var(--item-margin);
+}
+header, h2
+{
+    margin-top: var(--item-margin);
+}
+
+li span, ol span
+{
+    color: var(--standard-text-colour);
 }
 
 
@@ -252,4 +273,53 @@ form input:invalid + input[type="submit"]
 {
     opacity: 0.5;
     pointer-events: none;
+}
+
+
+.clickable:hover
+{
+    cursor: pointer;
+}
+
+#about .container p, .container header
+{
+    margin: 0 0 2em;
+}
+
+/*#nav ul li:hover, #nav ul li a:hover,  #nav ul li a span:hover*/
+#nav a:hover, #nav li:hover, .nav-link-highlight:hover
+{
+    background-color: black;
+    color: white;
+}
+#nav ul li span:hover, #nav ul li span:hover::before
+{
+    background-color: black;
+    color: white;
+}       
+#nav a[role="link"]:hover
+{
+    background-color: black;
+    color: white;
+}
+
+#nav .solid:hover
+{
+    background-color: black;
+    color: white;
+}
+
+#nav span
+{
+    color: lightgrey;
+}
+
+.languages, .engines
+{
+    color: var(--standard-text-colour);
+}
+
+.hidden
+{
+    display: none;
 }
