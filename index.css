@@ -1,0 +1,178 @@
+*
+{
+    font-size: 62.5%;
+    background-color: black;
+}
+
+:root 
+    {
+        --bg-color: #000;
+        --text-color: #fff;
+        --accent-color: #fff;
+        --accent-color-light: #fff;
+        --accent-color-dark: #fff;
+        /** odd colour should be lighter than even colour */
+        --odd-article-bg-color: #000;
+        /** even colour should be darker than odd colour */
+        --even-article-bg-color: #222;
+        --hyperlink-color: rgb(130, 128, 228);
+        --hyperlink-clicked-color: purple;
+    }
+
+html, body 
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+
+    /* set background colour */
+    background-color: var(--bg-color);
+    /* set text colour */
+    color: var(--text-color);
+
+
+}
+
+
+
+
+
+main 
+{
+    display: grid;
+    /* grid template rows for pancake layout*/
+    grid-template-rows: auto 1fr auto;
+}
+
+main header 
+{
+    
+    /* set height to 100% of parent */
+    height: 100%;
+    /* add padding to top and bottom */
+    padding: 1rem;
+}
+
+h1 
+{
+
+    font-size: 5rem;
+    font-weight: 700;
+    
+}
+h2 
+{
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.htitle
+{
+    font-weight: lighter;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+section 
+{
+    /* centre contents of section */
+
+    /** add padding between each item in the section */
+    padding: 1rem;
+    /* set height to 100% of parent */
+    height: 100%;
+    /** fill the width of the parent */
+    width: 100%;
+}
+
+
+
+section article 
+{
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top:  0.5rem;
+    margin-bottom: 3.5rem;
+}
+
+
+section article p 
+{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+section article iframe
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 50rem;
+}
+
+section article video
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 50rem;
+
+}
+
+/* section article:nth-child(odd) 
+{
+    background-color: var(--odd-article-bg-color);
+}
+
+section article:nth-child(even) 
+{
+    background-color: var(--even-article-bg-color);
+} */
+
+.flex-centred
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /** centred*/
+   
+    /** set height to 100% of parent */
+    height: 100%;
+    /** fill the width of the parent */
+    width: 100%;    
+}
+
+ul span
+{
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+ul li
+{
+    margin-bottom: 1.5rem;
+
+}
+a
+{
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size :2.2rem;
+    color: var(--hyperlink-color);
+    text-decoration: underline;
+
+}
+a:visited
+{
+    color: var(--hyperlink-clicked-color);
+}
